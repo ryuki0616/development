@@ -460,6 +460,7 @@ def display_daily_missions(daily_status: Dict[str, Any]) -> None:
     ))
     
     table = Table(box=box.ROUNDED)
+    table.add_column("ID", style="dim")
     table.add_column("ミッション")
     table.add_column("進捗", justify="center")
     table.add_column("報酬")
@@ -491,6 +492,7 @@ def display_daily_missions(daily_status: Dict[str, Any]) -> None:
             status = "[yellow]進行中[/yellow]"
         
         table.add_row(
+            mission["id"],
             mission["name"],
             progress_text,
             reward_text,
@@ -500,6 +502,7 @@ def display_daily_missions(daily_status: Dict[str, Any]) -> None:
     console.print(table)
     console.print()
     console.print("[dim]報酬受取: sg daily claim <ミッションID>[/dim]")
+    console.print("[dim]例: sg daily claim commands_10[/dim]")
     console.print()
 
 
